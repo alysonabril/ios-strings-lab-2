@@ -7,9 +7,14 @@ Fork and clone this repo. On your fork, answer and commit the follow questions. 
 You are given a string stored in variable `problem`. Write code so that you print each word of the string on a new line.
 
 ```swift
-var problem = "split this string into words and print them on separate lines"
 
-// Your code
+var problem = "split this string into words and print them on separate lines"
+var newString = problem.components(separatedBy: " ")
+
+for element in newString {
+print(element)
+}
+
 ```
 
 Example
