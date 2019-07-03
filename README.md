@@ -45,6 +45,12 @@ Given a string `testString` create a new variable called `condensedString` that 
 ```swift
 let testString = "  How   about      thesespaces  ?  "
 //condensedString = " How about thesespaces ? "
+
+let condensedString = testString.trimmingCharacters(in: CharacterSet.whitespaces)
+
+print(condensedString)
+
+//TODO: condense string further
 ```
 
 
@@ -58,6 +64,18 @@ Sample Input: `"Swift is the best language"`
 
 Sample Output: `"language best the is Swift"`
 
+```swift
+
+let input = "Swift is the best language"
+let inputWordsSeparatedBySpace = input.components(separatedBy: " ")
+var output = ""
+
+for element in inputWordsSeparatedBySpace.reversed() {
+output += "\(element) "
+}
+print(output)
+```
+
 
 ## Question 4
 
@@ -69,6 +87,20 @@ Sample Input: `"danaerys dad cat civic bottle"`
 
 Sample Output: `2`
 
+```swift
+
+var sampleInput = "danaerys dad cat civic bottle"
+var inputSeparatedByComponents = sampleInput.components(separatedBy: " ")
+var numberOfPalindromes = 0 
+
+for element in inputSeparatedByComponents {
+if element == String(element.reversed()) {
+numberOfPalindromes += 1
+}
+}
+print(numberOfPalindromes)
+
+```
 
 ## Question 5
 
@@ -89,6 +121,24 @@ Sample Input: `"PPALLP"`
 Sample Output: `true`
 
 
+```swift
+let studentAttendance = "PPALLP"
+var studentAbsence = 0
+let studentLates = "LL"
+
+for i in studentAttendance {
+if i == "A" {
+studentAbsence += 1
+}
+}
+
+if studentAttendance.contains(studentLates) || studentAbsence > 1 {
+print("False")
+} else {
+print("True")
+}
+```
+
 ## Question 6
 
 Given a tuple with two strings. The first string is a **ransom note**, the second string being the characters from a magazine. Determine whether or not you can construct the ransom note using the characters from the magazine.
@@ -104,3 +154,17 @@ Sample Output1: `False`
 Sample Input2: `("aa", "aab")`
 
 Sample Output2: `True`
+
+
+```swift
+let firstRansomTuple = (ransom: "a", magazine: "b")
+let secondRansomTuple = (ransom: "aa", magazine: "aab")
+
+var ransomComposition1 = String(firstRansomTuple.magazine.sorted()).contains(String(firstRansomTuple.ransom.sorted()))
+
+var ransomComposition2 = String(secondRansomTuple.magazine.sorted()).contains(String(secondRansomTuple.ransom.sorted()))
+
+
+print(ransomComposition1)
+print(ransomComposition2)
+```
